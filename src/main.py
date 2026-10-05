@@ -5,11 +5,13 @@ import sys
 
 def main():
 
-    basepath = #
-    
+    basepath = "/"
+    if len(sys.argv) > 1:   
+        basepath = sys.argv[1]
+
     # Example usage of copy_static_files
-    src_directory = f"{basepath}/static"
-    dest_directory = f"{basepath}/public"
+    src_directory = "./static"
+    dest_directory = "./docs"
     
     try:
         copy_static_files(src_directory, dest_directory)
@@ -18,7 +20,6 @@ def main():
         print(e)
     
     # Example usage of generate_page
-    generate_pages_recursive(f"{basepath}/content", f"{basepath}/template.html", f"{basepath}/public")
-
+    generate_pages_recursive("content", "template.html", "docs", basepath)
 main()
   
